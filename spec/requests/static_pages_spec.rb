@@ -27,5 +27,4 @@ describe "Static pages" do
 
     it { should have_selector('h1', text: 'Contact Us')}
   end
-
 end
