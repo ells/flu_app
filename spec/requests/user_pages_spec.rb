@@ -1,20 +1,16 @@
 require 'spec_helper'
 
 describe "User pages" do
-
   subject { page }
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
-
     it { should have_selector('h1',    text: user.name) }
   end
 
   describe "signup" do
-
     before { visit signup_path }
-
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
@@ -36,6 +32,5 @@ describe "User pages" do
       end
     end
   end
-
 end
 
