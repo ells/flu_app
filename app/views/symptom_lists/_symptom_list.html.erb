@@ -1,0 +1,7 @@
+<li>
+  <span class="symptom"><%= symptom_list.symptom_id %></span>
+  <span class="symptom intensity"><%= symptom_list.symptom_metric %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(symptom_list.created_at) %> ago.
+  </span>
+</li>

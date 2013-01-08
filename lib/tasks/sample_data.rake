@@ -22,5 +22,13 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+
+    users = User.all(limit: 6)
+    50.times do
+      symptom_id = 69
+      symptom_metric = 42
+      geolocation = "over there"
+      users.each { |user| user.symptom_list.create!(symptom_id: symptom_id, symptom_metric: symptom_metric, geolocation: geolocation) }
+    end
   end
 end

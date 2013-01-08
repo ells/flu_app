@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @symptom_list = @user.symptom_list.paginate(page: params[:page])
   end
 
   def new
