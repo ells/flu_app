@@ -3,8 +3,8 @@ require 'spec_helper'
 describe SymptomList do
 
 	let(:user) { FactoryGirl.create(:user) }
-	before { @symptom_list = user.SymptomList.build(
-	          symptom_id: 69, symptom_metric: 42, user_id: user.id, geolocation: "over there")
+	before { @symptom_list = user.symptom_list.build(
+	          symptom_id: 69, symptom_metric: 42, geolocation: "over there")}
 
 	subject { @symptom_list }
 
@@ -20,7 +20,7 @@ describe SymptomList do
     describe "accessible attributes" do
       it "should not allow access to user_id" do
 		expect do 
-			SymptomList.new(user_id: user.id)
+			SymptomList.new(symptom_id: 69, symptom_metric: 42, user_id: user.id, geolocation: "over there")
         end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
 	  end
 	end
