@@ -9,13 +9,4 @@
     </section>
   </aside>
 
-	<div class="span8">
-	<% if @user.symptom_list.any? %>
-	  <h3>SymptomLists (<%= @user.symptom_list.count %>)</h3>
-	  <ol class="symptom_lists">
-	    <%= render @symptom_list %>
-	  </ol>
-	  <%= will_paginate @symptom_list %>
-	<% end %>
-	</div>
 </div>
