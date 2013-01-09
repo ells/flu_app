@@ -9,12 +9,14 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 
 
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
 end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'nifty-generators'
 end
 
 
