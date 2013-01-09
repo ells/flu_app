@@ -2,6 +2,8 @@ FluApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :symptom_lists, only: [:create, :destroy]
+  resources :symptoms, only: [:create, :destroy, :edit]
+
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

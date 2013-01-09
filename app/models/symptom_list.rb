@@ -1,6 +1,7 @@
 class SymptomList < ActiveRecord::Base
   attr_accessible :symptom_id, :symptom_metric, :geolocation
   belongs_to :user
+  
 
   validates :symptom_id, presence: true
   validates :symptom_metric, presence: true
