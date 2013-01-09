@@ -1,17 +1,24 @@
-<h1><%= @survey.name %></h1>
+<% title "Survey" %>
+<p>
+  <strong>Name:</strong>
+  <%=h @survey.name %>
+</p>
 
-<ol class="questions">
-<% @survey.questions.each do |question| %>
+<ol>
+<% for question in @survey.questions %>
   <li>
-    <%= question.content %>
-    <ol class="answers">
-      <% question.answers.each do |answer| %>
-        <li><%= answer.content %></li>
-      <% end %>
-    </ol>
+    <%=h question.content %>
+    <ul>
+    <% for answer in question.answers %>
+      <li><%=h answer.content %></li>
+    <% end %>
+    </ul>
   </li>
 <% end %>
 </ol>
 
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back to Surveys', surveys_path %>
+<p>
+  <%= link_to "Edit", edit_survey_path(@survey) %> |
+  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", surveys_path %>
+</p>
