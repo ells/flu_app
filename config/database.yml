@@ -2,7 +2,7 @@
 development:
  adapter: postgresql
  encoding: unicode
- database: db
+ database: flu_dev
  host: localhost
  port: 5432
  pool: 5
@@ -10,7 +10,7 @@ development:
 production:
  adapter: postgresql
  encoding: unicode
- database: db
+ database: flu_launch
  host: localhost
  port: 5432
  pool: 5
@@ -18,7 +18,7 @@ production:
 test:
  adapter: postgresql
  encoding: unicode
- database: db
+ database: flu_test
  host: localhost
  port: 5432
  pool: 5
