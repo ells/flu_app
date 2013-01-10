@@ -10,10 +10,4 @@ FactoryGirl.define do
     end
   end
 
-  factory :symptom_list do
-    symptom_id 69
-    symptom_metric 42
-    user
-    geolocation "over there"
-  end
 end

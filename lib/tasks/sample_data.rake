@@ -3,13 +3,13 @@ namespace :db do
   task populate: :environment do
 
    admin = User.create!(name: "example admin",
-                       email: "ells@cubed.org",
+                       email: "ells@psu.edu",
                        password: "button",
                        password_confirmation: "button")
 
     admin.toggle!(:admin)
     User.create!(name: "Example User",
-                 email: "ells@cubed.com",
+                 email: "ells@ucsd.edu",
                  password: "button",
                  password_confirmation: "button")
 
@@ -21,14 +21,6 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
-    end
-
-    users = User.all(limit: 6)
-    50.times do
-      symptom_id = 69
-      symptom_metric = 42
-      geolocation = "over there"
-      users.each { |user| user.symptom_list.create!(symptom_id: symptom_id, symptom_metric: symptom_metric, geolocation: geolocation) }
     end
   end
 end

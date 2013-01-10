@@ -1,0 +1,24 @@
+<h1>Symptoms</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Symptom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @symptoms.each do |symptom| %>
+      <tr>
+        <td><%= symptom.id %></td>
+        <td><%= link_to symptom.name, symptom_path(symptom) %></td>
+        <td>
+          <%= link_to 'Edit', edit_symptom_path(symptom), :class => 'btn btn-mini' %>
+          <%= link_to 'Delete', symptom_path(symptom), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_symptom_path, :class => 'btn btn-primary' %>

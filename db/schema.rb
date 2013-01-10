@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130109051748) do
+ActiveRecord::Schema.define(:version => 20130109235725) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20130109051748) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "metrics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "metrics", ["name"], :name => "index_metrics_on_name", :unique => true
 
   create_table "questions", :force => true do |t|
     t.integer  "survey_id"
@@ -33,16 +41,13 @@ ActiveRecord::Schema.define(:version => 20130109051748) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "symptom_lists", :force => true do |t|
-    t.integer  "symptom_id"
-    t.integer  "symptom_metric"
-    t.integer  "user_id"
-    t.string   "geolocation"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "symptoms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "symptom_lists", ["user_id", "created_at"], :name => "index_symptom_lists_on_user_id_and_created_at"
+  add_index "symptoms", ["name"], :name => "index_symptoms_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -52,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20130109051748) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
-    t.boolean  "guest"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

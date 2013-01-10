@@ -18,35 +18,8 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
-  it { should respond_to(:authenticate) }
-  it { should respond_to(:symptom_list) }
   it { should be_valid }
   it { should_not be_admin }
-
-describe "symptom_list associations" do
-
-  before { @user.save }
-  let!(:older_symptom_list) do 
-    FactoryGirl.create(:symptom_list, user: @user, created_at: 1.day.ago)
-  end
-  let!(:newer_symptom_list) do
-    FactoryGirl.create(:symptom_list, user: @user, created_at: 1.hour.ago)
-  end
-
-  it "should have the right symptom_lists in the right order" do
-    @user.symptom_list.should == [newer_symptom_list, older_symptom_list]
-  end
-
-  it "should destroy associated microposts" do
-    symptom_lists = @user.symptom_list.dup
-    @user.destroy
-    symptom_lists.should_not be_empty
-    symptom_lists.each do |symptom_list|
-      SymptomList.find_by_id(symptom_list.id).should be_nil
-    end
-  end
-end
-
 
 describe "with admin attribute set to 'true'" do
   before do
