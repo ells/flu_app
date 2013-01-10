@@ -1,0 +1,24 @@
+<% title "Disease" %>
+<p>
+  <strong>Name:</strong>
+  <%=h @disease.name %>
+</p>
+
+<ol>
+<% for symptom in @disease.symptoms %>
+  <li>
+    <%=h symptom.name %>
+  </li>
+  <ul>
+    <% for metric in symptom.metrics %>
+      <li><%=h symptom.name %></li>
+    <% end %>
+    </ul>
+<% end %>
+</ol>
+
+<p>
+  <%= link_to "Edit", edit_disease_path(@disease) %> |
+  <%= link_to "Destroy", @disease, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", diseases_path %>
+</p>

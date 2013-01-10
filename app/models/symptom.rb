@@ -1,6 +1,6 @@
 class Symptom < ActiveRecord::Base
-  attr_accessible :name
-  validates_presence_of :name
-  has_many :metrics
+  attr_accessible :name, :metrics, :metrics_attributes
+  has_many :metrics, as: :metricizable
+  belongs_to :symptomable, polymorphic: true
   accepts_nested_attributes_for :metrics
 end

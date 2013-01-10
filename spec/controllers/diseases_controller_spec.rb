@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe SurveysController do
+describe DiseasesController do
   fixtures :all
   render_views
 
@@ -10,7 +10,7 @@ describe SurveysController do
   end
 
   it "show action should render show template" do
-    get :show, :id => Survey.first
+    get :show, :id => Disease.first
     response.should render_template(:show)
   end
 
@@ -20,38 +20,38 @@ describe SurveysController do
   end
 
   it "create action should render new template when model is invalid" do
-    Survey.any_instance.stubs(:valid?).returns(false)
+    Disease.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Survey.any_instance.stubs(:valid?).returns(true)
+    Disease.any_instance.stubs(:valid?).returns(true)
     post :create
-    response.should redirect_to(survey_url(assigns[:survey]))
+    response.should redirect_to(disease_url(assigns[:disease]))
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => Survey.first
+    get :edit, :id => Disease.first
     response.should render_template(:edit)
   end
 
   it "update action should render edit template when model is invalid" do
-    Survey.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Survey.first
+    Disease.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Disease.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    Survey.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Survey.first
-    response.should redirect_to(survey_url(assigns[:survey]))
+    Disease.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Disease.first
+    response.should redirect_to(disease_url(assigns[:disease]))
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    survey = Survey.first
-    delete :destroy, :id => survey
-    response.should redirect_to(surveys_url)
-    Survey.exists?(survey.id).should be_false
+    disease = Disease.first
+    delete :destroy, :id => disease
+    response.should redirect_to(diseases_url)
+    Disease.exists?(disease.id).should be_false
   end
 end
