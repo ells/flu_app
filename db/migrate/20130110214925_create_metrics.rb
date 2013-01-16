@@ -7,5 +7,6 @@ class CreateMetrics < ActiveRecord::Migration
       t.timestamps
     end
     add_index :metrics, [:metricizable_id, :metricizable_type]
+    add_index :metrics, :name, unique=>true 
   end
 end
