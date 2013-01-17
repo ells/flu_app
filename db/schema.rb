@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110214925) do
+ActiveRecord::Schema.define(:version => 20130116215411) do
 
   create_table "diseases", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(:version => 20130110214925) do
   end
 
   add_index "diseases", ["name"], :name => "index_diseases_on_name", :unique => true
+
+  create_table "metric_values", :force => true do |t|
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "metrics", :force => true do |t|
     t.string   "name"
@@ -30,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20130110214925) do
   end
 
   add_index "metrics", ["metricizable_id", "metricizable_type"], :name => "index_metrics_on_metricizable_id_and_metricizable_type"
+
+  create_table "symptom_submissions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "geolocation"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "symptom_submissions", ["user_id", "created_at"], :name => "index_symptom_submissions_on_user_id_and_created_at"
 
   create_table "symptoms", :force => true do |t|
     t.string   "name"
