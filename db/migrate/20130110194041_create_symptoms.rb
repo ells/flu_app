@@ -7,6 +7,6 @@ class CreateSymptoms < ActiveRecord::Migration
       t.timestamps
     end
     add_index :symptoms, [:symptomable_id, :symptomable_type]
-    add_index :symptoms, :name, unique=>true 
+    add_index :symptoms, :name, unique: true 
   end
 end
