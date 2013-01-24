@@ -4,7 +4,7 @@ class SymptomSubmissionsController < ApplicationController
   end
   
   def new
-    @symptom_submission = Symptom_Submission.new
+    @symptom_submission = SymptomSubmission.new
   end
 
   def create
@@ -21,9 +21,6 @@ class SymptomSubmissionsController < ApplicationController
   def destroy
   end
   
-  def new
-  end  
-
 private
     
     def random_symptom_set   

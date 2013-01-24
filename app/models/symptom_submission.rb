@@ -1,6 +1,7 @@
 class SymptomSubmission < ActiveRecord::Base
   attr_accessible :geolocation
   has_many :symptoms
+  has_many :metrics
   has_many :metric_values
   belongs_to :user
   

@@ -8,5 +8,4 @@ class CreateSymptomSubmissions < ActiveRecord::Migration
     end
     add_index :symptom_submissions, [:user_id, :created_at]
   end
-  default_scope order: 'symptom_submissions.created_at DESC'
 end

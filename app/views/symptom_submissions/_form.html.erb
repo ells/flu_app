@@ -1,13 +1,18 @@
-<div id="Symptoms">
-  <%- for symptom in @symptoms -%>
-    <h3><%=h symptom.name %></h3>
-  <%- end -%>
-</div>      
-      
-      
-      
-	<!--   <% random_symptom_set.each do |symptom| %>
-	     <tr><%= symptom.name %></tr>
-  	  <% end %>
+<div class="btn-group btn-group-vertical">
+
+<%= form_for(@symptom_submission) do |f| %>
+
+
+	<% random_symptom_set.each do |symptom| %>
+	   <button type="button" class="btn btn-primary" data-toggle="button"> <%=symptom.name %> </button>
+  	 <% end %>
 	 
-	   -->
+ 	<div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+    </div>
+    
+<% end %>
+
+
+
+</div>
