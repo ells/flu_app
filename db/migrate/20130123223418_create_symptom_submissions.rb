@@ -2,7 +2,6 @@ class CreateSymptomSubmissions < ActiveRecord::Migration
   def change
     create_table :symptom_submissions do |t|
       t.integer :user_id, :null => false
-      t.string :geolocation
 
       t.timestamps
     end

@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(:version => 20130123223418) do
   add_index "metrics", ["metricizable_id", "metricizable_type"], :name => "index_metrics_on_metricizable_id_and_metricizable_type"
 
   create_table "symptom_submissions", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.string   "geolocation"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "symptom_submissions", ["user_id", "created_at"], :name => "index_symptom_submissions_on_user_id_and_created_at"
@@ -55,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20130123223418) do
     t.float    "selection_weight", :default => 1.0
   end
 
-  add_index "symptoms", ["name"], :name => "index_symptoms_on_name", :unique => true
   add_index "symptoms", ["symptomable_id", "symptomable_type"], :name => "index_symptoms_on_symptomable_id_and_symptomable_type"
 
   create_table "users", :force => true do |t|

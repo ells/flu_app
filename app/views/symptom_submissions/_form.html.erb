@@ -1,18 +1,22 @@
 <div class="btn-group btn-group-vertical">
 
-<%= form_for(@symptom_submission) do |f| %>
+<%= simple_form_for(@symptom_submission) do |f| %>
 
-
-	<% random_symptom_set.each do |symptom| %>
-	   <button type="button" class="btn btn-primary" data-toggle="button"> <%=symptom.name %> </button>
-  	 <% end %>
-	 
- 	<div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-    </div>
-    
+		<div> 
+			<%=f.association :symptoms,:as => :check_boxes, :collection => Symptom.find(:all).sample(5), :prompt => "Choose a Symptom" %>
+		    
+		</div>
+		
 <% end %>
 
 
 
 </div>
+
+
+
+
+
+<!-- 	<% random_symptom_set.each do |symptom| %>
+	   <button type="button" class="btn btn-primary" data-toggle="button"> <%= symptom.name %> </button>
+  	 <% end %> -->
