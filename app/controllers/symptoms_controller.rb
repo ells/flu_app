@@ -5,8 +5,12 @@ class SymptomsController < ApplicationController
   end
   
   def index
-    @symptoms = Symptom.all
+    @symptomable = Disease.find(params[:name])
+    @symptoms = @symptomable.symptoms
   end
 
+  def new
+    
+  end
   
 end
