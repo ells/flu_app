@@ -1,0 +1,10 @@
+<%= simple_form_for(@symptom_set, :html => { :class => 'form-vertical' }) do |f| %>
+	<%= f.hidden_field :symptom_set_id%>
+	<%= f.fields_for :symptoms_attributes do |builder| %>	    
+	  		<%= render 'symptom_selection', f: builder %>
+	<%end%>
+	
+	<div class="form-actions">
+		<%=f.submit nil, :class => 'btn-primary'%>	
+	</div>
+<%end%>

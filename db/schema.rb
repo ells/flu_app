@@ -11,31 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123223418) do
+ActiveRecord::Schema.define(:version => 20130125223021) do
 
-  create_table "diseases", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "symptom_sets", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "symptom_set_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "diseases", ["name"], :name => "index_diseases_on_name", :unique => true
-
-  create_table "metric_values", :force => true do |t|
-    t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "metrics", :force => true do |t|
-    t.string   "name"
-    t.integer  "metricizable_id"
-    t.string   "metricizable_type"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  add_index "metrics", ["metricizable_id", "metricizable_type"], :name => "index_metrics_on_metricizable_id_and_metricizable_type"
+  add_index "symptom_sets", ["user_id", "created_at"], :name => "index_symptom_sets_on_user_id_and_created_at"
 
   create_table "symptom_submissions", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -47,14 +32,15 @@ ActiveRecord::Schema.define(:version => 20130123223418) do
 
   create_table "symptoms", :force => true do |t|
     t.string   "name"
-    t.integer  "symptomable_id"
-    t.string   "symptomable_type"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.float    "selection_weight", :default => 1.0
+    t.boolean  "presence"
+    t.integer  "intensity"
+    t.integer  "duration"
+    t.integer  "symptom_submission_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
-  add_index "symptoms", ["symptomable_id", "symptomable_type"], :name => "index_symptoms_on_symptomable_id_and_symptomable_type"
+  add_index "symptoms", ["symptom_submission_id"], :name => "index_symptoms_on_symptom_submission_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
