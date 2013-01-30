@@ -1,9 +1,13 @@
-<%= simple_form_for(@symptom_set, :html => { :class => 'form-vertical' }) do |f| %>
-	<%= f.fields_for :symptoms_attributes do |builder| %>	    
-	  		<%= render 'symptom_selection', f: builder %>
-	<%end%>
-	
-	<div class="form-actions">
-		<%=f.submit nil, :class => 'btn-primary'%>	
-	</div>
-<%end%>
+<%= simple_form_for @symptom_set, :html => { :class => 'form-horizontal' } do |f| %>
+  
+	  <%= f.fields_for :symptoms do |builder| %>
+	  	<%= render 'symptom_fields', f: builder %>
+	  <% end %>
+	  
+	  <p><%= f.add_nested_fields_link :symptoms%></p>
+	  
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	  
+<% end %>

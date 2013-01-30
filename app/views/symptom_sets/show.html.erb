@@ -1,0 +1,12 @@
+<% title "Symptom Set" %>
+
+<p>
+  <strong>User:</strong>
+  <%= @symptom_set.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_symptom_set_path(@symptom_set) %> |
+  <%= link_to "Destroy", @symptom_set, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", symptom_sets_path %>
+</p>

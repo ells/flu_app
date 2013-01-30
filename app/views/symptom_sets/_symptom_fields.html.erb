@@ -1,0 +1,10 @@
+<fieldset>
+<%= f.input :name, :collection=> ["Cough", "Fever", "Headache", "Lethargy"], label: "Symptom", prompt: "Select a symptom"%>  
+	  		
+  <%= f.hidden_field :_destroy %>
+  <%= f.remove_nested_fields_link 'Remove Symptom' %>
+     <%= f.fields_for :metrics do |builder| %>
+      <%= render 'metric_fields', f: builder %>
+     <% end %>
+  <p><%=f.add_nested_fields_link :metrics, 'Add Metric'%></p>
+</fieldset>

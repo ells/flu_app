@@ -1,2 +1,17 @@
-<h1>SymptomSets#index</h1>
-<p>Find me in app/views/symptom_sets/index.html.erb</p>
+<% title "Symptom Sets" %>
+
+<table>
+  <tr>
+    <th>User</th>
+  </tr>
+  <% for symptom_set in @symptom_sets %>
+    <tr>
+      <td><%= symptom_set.user_id %></td>
+      <td><%= link_to "Show", symptom_set %></td>
+      <td><%= link_to "Edit", edit_symptom_set_path(symptom_set) %></td>
+      <td><%= link_to "Destroy", symptom_set, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Symptom Set", new_symptom_set_path %></p>
