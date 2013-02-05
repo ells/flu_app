@@ -2,7 +2,7 @@ class CreateSymptoms < ActiveRecord::Migration
   def change
     create_table :symptoms do |t|
       t.string :name
-      t.integer :symptom_set_id, :null => false 
+      t.integer :symptom_set_id
       t.integer :duration
 
       t.timestamps

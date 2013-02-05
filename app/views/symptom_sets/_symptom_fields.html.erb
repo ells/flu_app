@@ -6,11 +6,12 @@
               :input_html => { :class => "span3" }%>  
   <%= f.hidden_field :_destroy %>
   
+  
   <%= f.input :duration, 
               :collection => 1..14, 
               label: "Duration",
               prompt: "How many days?" %>
   <%= f.hidden_field :_destroy %>
-
+  
   <%= link_to "Remove Symptom", '#', class: "remove_fields" %><br />
 </fieldset>

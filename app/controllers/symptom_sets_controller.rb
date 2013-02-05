@@ -21,10 +21,8 @@ class SymptomSetsController < ApplicationController
     end
   end
 
-
-
    def create
-    @symptom_set = current_user.symptom_sets.build(params[:symptom_sets])
+    @symptom_set = current_user.symptom_sets.new(params[:symptom_set])
     if @symptom_set.save
       flash[:success] = "Symptoms submitted!"
       redirect_to root_url
