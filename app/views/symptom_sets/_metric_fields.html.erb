@@ -1,8 +1,0 @@
-<fieldset>
-  <%= f.input :name,  priority: [ "Duration" ], :collection => ["Intensity", "Duration"], label: "Measure", prompt: "How Long/How Bad?" %>
-  <%= f.input :value, collection: 1..10 %>
-
-  
-  <%= f.hidden_field :_destroy %>
-  <%= f.remove_nested_fields_link 'Remove Metric' %>
-</fieldset>
