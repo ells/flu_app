@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130181338) do
-
-  create_table "metrics", :force => true do |t|
-    t.integer  "symptom_id"
-    t.string   "name"
-    t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130205180200) do
 
   create_table "symptom_sets", :force => true do |t|
     t.integer  "user_id"
@@ -27,12 +19,17 @@ ActiveRecord::Schema.define(:version => 20130130181338) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "symptom_sets", ["user_id"], :name => "index_symptom_sets_on_user_id"
+
   create_table "symptoms", :force => true do |t|
-    t.integer  "symptom_set_id"
     t.string   "name"
+    t.integer  "symptom_set_id"
+    t.integer  "duration"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  add_index "symptoms", ["symptom_set_id"], :name => "index_symptoms_on_symptom_set_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

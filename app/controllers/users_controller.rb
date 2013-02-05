@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @symptom_sets = @user.symptom_sets.paginate(page: params[:page])
+
   end
 
   def new

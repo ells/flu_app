@@ -2,8 +2,8 @@ FluApp::Application.routes.draw do
   
 
   
-  resources :symptom_sets
-  
+ resources :symptom_sets
+ 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   

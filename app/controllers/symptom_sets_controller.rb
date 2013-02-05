@@ -1,20 +1,23 @@
 class SymptomSetsController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :signed_in_user, only: [:create, :new]
+  before_filter :correct_user, only: [:index, :show, :edit, :destroy, :update]
+
 
   
   def index
-    @symptom_sets = SymptomSet.all
+    user = User.find(params[:user_id])
+    @symptom_sets = user.symptom_sets.find_by_user_id(params[:user_id])
   end
 
   def show
-    @symptom_set = SymptomSet.find(params[:id])
+    user = User.find(params[:user_id])
+    @symptom_set = user.SymptomSet.find(params[:id])
   end
 
   def new
     @symptom_set = SymptomSet.new
-    2.times do
+    3.times do
       symptom = @symptom_set.symptoms.build
-      1.times { symptom.metrics.build }
     end
   end
 
@@ -48,4 +51,11 @@ class SymptomSetsController < ApplicationController
     @symptom_set.destroy
     redirect_to symptom_sets_url, :notice => "Successfully destroyed symptom set."
   end
+  
+  private
+
+    def correct_user
+      @symptom_set = current_user.symptom_sets.find_by_id(params[:id])
+      redirect_to root_url if @symptom_set.nil?
+    end
 end
