@@ -1,7 +1,5 @@
 FluApp::Application.routes.draw do  
   
-
-  
  resources :symptom_sets
  
   resources :users

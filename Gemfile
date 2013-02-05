@@ -34,9 +34,11 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'guard-rspec' 
+  gem 'webrat'
 end
 
-
-gem "mocha", :group => :test

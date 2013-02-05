@@ -8,5 +8,11 @@
       </h1>
     </section>
   </aside>
+  
+  <div class="span8">
+    <% if @user.symptom_sets.any? %>
+      <h3>You have submitted <%= @user.symptom_sets.count %> Symptom Sets</h3>
+    <% end %>
+  </div>
 
 </div>

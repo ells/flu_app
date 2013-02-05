@@ -34,10 +34,18 @@ FluApp::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
+  
   # Speed up tests by lowering BCrypt's cost function.
   require 'bcrypt'
   silence_warnings do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
+  
+  config.gem "cucumber", :lib => false, :version  => ">=0.2.2"
+  config.gem "webrat", :lib => false, :version => ">=0.4.3"
+  config.gem "rspec-rails", :lib => false, :version => ">=1.2.2"
+  config.gem "rspec", :lib => false, :version => ">=1.2.2"
+
+
+
 end

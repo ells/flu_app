@@ -5,6 +5,6 @@ class CreateSymptomSets < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :symptom_sets, :user_id
+    add_index :symptom_sets, [:user_id, :created_at]
   end
 end
