@@ -1,8 +1,9 @@
 <%= simple_form_for @symptom_set, :html => { :class => 'form-inline' } do |f| %>
+  
 	<%= f.fields_for :symptoms do |builder| %>
 		<%= render 'symptom_fields', f: builder %>
 	<% end %>
-
-	<br><br><br><br><br><br><br><br><br><br><br>
-	<div class="actions"><%= f.submit %></div> 
+    <p><%= link_to_add_fields "New Symptom", f, :symptoms %></p>
+	
+	<div class="actions"><%= f.submit %></div>
 <% end %>

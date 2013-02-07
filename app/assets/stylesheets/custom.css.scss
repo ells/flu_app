@@ -1,6 +1,8 @@
 @import "bootstrap";
 
 
+
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -13,6 +15,7 @@ $grayMediumLight: #eaeaea;
 
 
 /* universal */
+
 html {
   overflow-y: scroll;
 }
@@ -149,7 +152,6 @@ aside {
 }
 
 /* forms */
-
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;

@@ -16,7 +16,7 @@ class SymptomSetsController < ApplicationController
 
   def new
     @symptom_set = SymptomSet.new
-    1.times do
+    3.times do
       symptom = @symptom_set.symptoms.build
     end
   end
@@ -24,7 +24,7 @@ class SymptomSetsController < ApplicationController
 
 
    def create
-    @symptom_set = current_user.symptom_sets.build(params[:symptom_sets])
+    @symptom_set = current_user.symptom_sets.new(params[:symptom_set])
     if @symptom_set.save
       flash[:success] = "Symptoms submitted!"
       redirect_to root_url
