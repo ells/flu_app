@@ -1,17 +1,16 @@
-<fieldset>
+  <div class = "span4">
   <%= f.input :name, 
               :collection=> ["Cough", "Fever", "Headache", "Lethargy"], 
               label: "Symptom", 
               prompt: "Select a symptom",
-              :input_html => { :class => "span3" }%>  
+              :input_html => { :class => "btn btn-primary" }%>  
   <%= f.hidden_field :_destroy %>
-  
-  
+
   <%= f.input :duration, 
               :collection => 1..14, 
-              label: "Duration",
-              prompt: "How many days?" %>
+              label: false,
+              prompt: "How many days?",
+              :input_html => { :class => "btn btn-primary"} %>
   <%= f.hidden_field :_destroy %>
   
-  <%= link_to "Remove Symptom", '#', class: "remove_fields" %><br />
-</fieldset>
+  </div>

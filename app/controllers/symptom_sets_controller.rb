@@ -16,7 +16,7 @@ class SymptomSetsController < ApplicationController
 
   def new
     @symptom_set = SymptomSet.new
-    3.times do
+    1.times do
       symptom = @symptom_set.symptoms.build
     end
   end

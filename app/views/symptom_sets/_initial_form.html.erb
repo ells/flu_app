@@ -1,0 +1,18 @@
+<h3> Select your symptoms... </h3>
+
+<script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
+
+<div ng-controller="SymptomSets"> 
+   <div ng-repeat="symptom in symptoms">
+   	 <div class="btn-group" bs-buttons-checkbox>
+	   <button type="button" class="btn btn-primary" ng-model="symptom.present"> {{symptom.name}} </button>
+	 </div>
+    Is {{symptom.name}} present?: <b><u>{{symptom.present}}</b></u>
+   </div>
+   
+   <button type = "button" class = "btn btn-danger" ng-click="finalizeSymptoms()">Done</button>
+   <button type = "button" class = "btn btn-danger" ng-click="clearSymptoms()">Clear</button>
+
+   <li ng-repeat="userSymptom in userSymptoms">{{userSymptom.name}}</li>
+
+</div>
