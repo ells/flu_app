@@ -1,13 +1,7 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe SymptomSet do
-  let(:user) {FactoryGirl.create(:user) }
-  before {@symptom_set = SymptomSet.new()}
-  
-  
-  subject {@symptom_set}
-  
-  it {should respond_to(:user_id)}
-  it {should respond_to(:user)}  
- 
+  it "should be valid" do
+    SymptomSet.new.should be_valid
+  end
 end

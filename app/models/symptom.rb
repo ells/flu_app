@@ -1,4 +1,4 @@
 class Symptom < ActiveRecord::Base
-  attr_accessible :name, :duration, :symptom_set_id
+  attr_accessible :name, :duration
   belongs_to :symptom_set
 end

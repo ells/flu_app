@@ -5,12 +5,22 @@
               prompt: "Select a symptom",
               :input_html => { :class => "btn btn-primary" }%>  
   <%= f.hidden_field :_destroy %>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> parent of ef335bf... symptom_set controller ( build -> new )
   <%= f.input :duration, 
               :collection => 1..14, 
               label: false,
               prompt: "How many days?",
               :input_html => { :class => "btn btn-primary"} %>
   <%= f.hidden_field :_destroy %>
+<<<<<<< HEAD
   
   </div>
+=======
+
+  <%= link_to "Remove Symptom", '#', class: "remove_fields" %><br />
+</fieldset>
+>>>>>>> parent of ef335bf... symptom_set controller ( build -> new )
